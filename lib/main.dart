@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mshop/screens/ColumnsScreen.dart';
+import 'package:mshop/screens/ContainerScreen.dart';
+import 'package:mshop/screens/ContainerStylingScreen.dart';
+import 'package:mshop/screens/ImagesScreen.dart';
+import 'package:mshop/screens/RowsScreen.dart';
+import 'package:mshop/screens/TextStylingScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,16 +42,117 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("Home screen"),
       ),
-      body: InkWell(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ColumnScreen(),
-            ),
-          );
-        },
-        child: Text("Columns"),
+      body: ListView(
+        children: [
+          ListTile(
+            title: Text("Coulumns"),
+            leading: Icon(Icons.view_column_outlined),
+            trailing: Icon(Icons.chevron_right),
+            subtitle: Text("All about columns..."),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ColumnScreen(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: Text("Rows"),
+            leading: Icon(Icons.table_rows_outlined),
+            trailing: Icon(Icons.chevron_right),
+            subtitle: Text("All about rows..."),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RowsScreen(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: Text("Container"),
+            leading: Icon(Icons.check_box_outline_blank),
+            trailing: Icon(Icons.chevron_right),
+            subtitle: Text("All about container..."),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ContainerScreen(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: Text("Images"),
+            leading: Icon(Icons.photo_size_select_actual_outlined),
+            trailing: Icon(Icons.chevron_right),
+            subtitle: Text("All about images..."),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ImagesScreen(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: Text("Text styling"),
+            leading: Icon(Icons.text_fields_outlined),
+            trailing: Icon(Icons.chevron_right),
+            subtitle: Text("Decorating text..."),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => TextStylingScreen(),
+                ),
+              );
+            },
+          ),
+
+          ListTile(
+            title: Text("Container styling"),
+            leading: Icon(Icons.deblur_rounded),
+            trailing: Icon(Icons.chevron_right),
+            subtitle: Text("Decorating containers..."),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ContainerStylingScreen(),
+                ),
+              );
+            },
+          ),
+
+          /*InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ColumnScreen(),
+                ),
+              );
+            },
+            child: Text("Columns"),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ColumnScreen(),
+                ),
+              );
+            },
+            child: Text("Columns"),
+          ),*/
+        ],
       ),
     );
   }
