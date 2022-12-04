@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mshop/screens/ColumnsScreen.dart';
 import 'package:mshop/screens/ContainerScreen.dart';
@@ -6,7 +8,9 @@ import 'package:mshop/screens/ImagesScreen.dart';
 import 'package:mshop/screens/RowsScreen.dart';
 import 'package:mshop/screens/TextStylingScreen.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -28,13 +32,26 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
+
   final String title;
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  createUser() {
+    print("========ROMINA START=========");
 
+    CollectionReference<Map<String, dynamic>> userCollection =
+        FirebaseFirestore.instance.collection('users');
+    userCollection.add({
+      'name': 'Romina K',
+      'age': 2,
+    });
+
+    print("========ROMINA DONE=========");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
             trailing: Icon(Icons.chevron_right),
             subtitle: Text("All about columns..."),
             onTap: () {
+              //createUser();
+              //return;
               Navigator.push(
                 context,
                 MaterialPageRoute(
