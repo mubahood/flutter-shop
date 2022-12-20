@@ -1,16 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mshop/screens/ColumnsScreen.dart';
 import 'package:mshop/screens/ContainerScreen.dart';
 import 'package:mshop/screens/ContainerStylingScreen.dart';
+import 'package:mshop/screens/FormDecoration.dart';
+import 'package:mshop/screens/FormOtherFiledsScreen.dart';
+import 'package:mshop/screens/FormTextField.dart';
 import 'package:mshop/screens/ImagesScreen.dart';
 import 'package:mshop/screens/RowsScreen.dart';
 import 'package:mshop/screens/TextStylingScreen.dart';
+import 'package:mshop/screens/ToastScreen.dart';
 
 Future main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  //WidgetsFlutterBinding.ensureInitialized();
+  //await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -144,6 +147,65 @@ class _MyHomePageState extends State<MyHomePage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => ContainerStylingScreen(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: Text("Toast"),
+            leading: Icon(Icons.touch_app),
+            trailing: Icon(Icons.chevron_right),
+            subtitle: Text("How to make pop ups"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ToastScreen(),
+                ),
+              );
+            },
+          ),
+
+          ListTile(
+            title: Text("Form Text Fild"),
+            leading: Icon(Icons.text_fields),
+            trailing: Icon(Icons.chevron_right),
+            subtitle: Text("Text input"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FormTextField(),
+                ),
+              );
+            },
+          ),
+
+          ListTile(
+            title: Text("Form decoration"),
+            leading: Icon(Icons.dark_mode_sharp),
+            trailing: Icon(Icons.chevron_right),
+            subtitle: Text("Decorating the input fields"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FormDecoration(),
+                ),
+              );
+            },
+          ),
+
+          ListTile(
+            title: Text("Form other fields"),
+            leading: Icon(Icons.other_houses),
+            trailing: Icon(Icons.chevron_right),
+            subtitle: Text("Other input fields"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FormOtherFiledsScreen(),
                 ),
               );
             },
