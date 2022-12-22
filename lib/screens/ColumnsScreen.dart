@@ -13,10 +13,10 @@ class _ColumnScreenState extends State<ColumnScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Columns'),
+        title: const Text('Json'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Text("My Text #1"),
           Text("My Text #2"),

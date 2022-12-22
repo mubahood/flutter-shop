@@ -6,7 +6,10 @@ import 'package:mshop/screens/ContainerStylingScreen.dart';
 import 'package:mshop/screens/FormDecoration.dart';
 import 'package:mshop/screens/FormOtherFiledsScreen.dart';
 import 'package:mshop/screens/FormTextField.dart';
+import 'package:mshop/screens/HttpRequestSreen.dart';
 import 'package:mshop/screens/ImagesScreen.dart';
+import 'package:mshop/screens/JsonScreen.dart';
+import 'package:mshop/screens/ProdcutsScreen.dart';
 import 'package:mshop/screens/RowsScreen.dart';
 import 'package:mshop/screens/TextStylingScreen.dart';
 import 'package:mshop/screens/ToastScreen.dart';
@@ -64,6 +67,58 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ListView(
         children: [
+
+          ListTile(
+            title: Text("Products"),
+            leading: Icon(Icons.add_shopping_cart),
+            trailing: Icon(Icons.chevron_right),
+            subtitle: Text("List of products"),
+            onTap: () {
+              //createUser();
+              //return;
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProductsScreen(),
+                ),
+              );
+            },
+          ),
+
+          ListTile(
+            title: Text("HttpRequest"),
+            leading: Icon(Icons.http),
+            trailing: Icon(Icons.chevron_right),
+            subtitle: Text("Internet communication..."),
+            onTap: () {
+              //createUser();
+              //return;
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HttpRequestSreen(),
+                ),
+              );
+            },
+          ),
+
+          ListTile(
+            title: Text("JSON"),
+            leading: Icon(Icons.join_inner_sharp),
+            trailing: Icon(Icons.chevron_right),
+            subtitle: Text("Json data formart..."),
+            onTap: () {
+              //createUser();
+              //return;
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => JsonScreen(),
+                ),
+              );
+            },
+          ),
+
           ListTile(
             title: Text("Coulumns"),
             leading: Icon(Icons.view_column_outlined),
