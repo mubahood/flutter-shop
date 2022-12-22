@@ -28,16 +28,42 @@ class LoginScreenState extends State<LoginScreen> {
   FirebaseFirestore.instance.collection('users');
 
   Future<void> submit_form() async {
+
+    UserModel new_user = UserModel();
+    new_user.id = UserModel.userCollection.doc().id.toString();
+    new_user.first_name = "Hamad";
+    new_user.last_name = "Muzdalfa";
+    new_user.sex = "Male";
+    new_user.phone_number = "0783204665";
+    new_user.user_type = "admin";
+    new_user.password = "4321";
+    new_user.address = "Pretoria";
+
+    new_user.saveNewUser();
+
+    return ;
+
+
     if (!_formKey.currentState!.validate()) {
       Utils.toast("Please fix errors in the form.", color: Colors.red);
       return;
     }
 
-    UserModel u = new UserModel();
+    setState(() {
+      is_loading = true;
+    });
 
-    u.phone_number = _formKey.currentState?.fields['phone_number']?.value;
-    ResponseModel r = await u.saveNewUser();
+    UserModel u = await UserModel.getUserByPhoneNumber(_formKey.currentState?.fields['phone_number']?.value);
 
+    setState(() {
+      is_loading = false;
+    });
+
+    if(u.phone_number.isEmpty){
+      Utils.toast("User account not found.");
+      return;
+    }
+    print("Good to go with ==> ${u.phone_number}");
     //print(r.message);
     return;
 
