@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:mshop/models/AppConfig.dart';
+import 'package:mshop/models/Utils.dart';
 import 'package:mshop/screens/ColumnsScreen.dart';
 import 'package:mshop/screens/ContainerScreen.dart';
 import 'package:mshop/screens/ContainerStylingScreen.dart';
@@ -12,8 +15,8 @@ import 'package:mshop/screens/TextStylingScreen.dart';
 import 'package:mshop/screens/ToastScreen.dart';
 
 Future main() async {
-  //WidgetsFlutterBinding.ensureInitialized();
-  //await Firebase.initializeApp();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -48,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     CollectionReference<Map<String, dynamic>> userCollection =
         FirebaseFirestore.instance.collection('users');
+
     userCollection.add({
       'name': 'Romina K',
       'age': 2,
@@ -65,19 +69,12 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ListView(
         children: [
           ListTile(
-            title: Text("Coulumns"),
+            title: Text("Login"),
             leading: Icon(Icons.view_column_outlined),
             trailing: Icon(Icons.chevron_right),
-            subtitle: Text("All about columns..."),
             onTap: () {
-              //createUser();
-              //return;
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ColumnScreen(),
-                ),
-              );
+             Utils.navigate_to(AppConfig.LoginScreen, context);
+
             },
           ),
           ListTile(
