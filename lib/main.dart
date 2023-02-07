@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mshop/models/AppConfig.dart';
 import 'package:mshop/models/Utils.dart';
-import 'package:mshop/screens/ColumnsScreen.dart';
 import 'package:mshop/screens/ContainerScreen.dart';
 import 'package:mshop/screens/ContainerStylingScreen.dart';
 import 'package:mshop/screens/FormDecoration.dart';
@@ -13,6 +12,8 @@ import 'package:mshop/screens/ImagesScreen.dart';
 import 'package:mshop/screens/RowsScreen.dart';
 import 'package:mshop/screens/TextStylingScreen.dart';
 import 'package:mshop/screens/ToastScreen.dart';
+import 'package:mshop/screens/database/DatabaseCreateScreen.dart';
+import 'package:mshop/screens/database/DatabaseInsertScreen.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -203,6 +204,34 @@ class _MyHomePageState extends State<MyHomePage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => FormOtherFiledsScreen(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: Text("DB - Table create"),
+            leading: Icon(Icons.table_chart),
+            trailing: Icon(Icons.chevron_right),
+            subtitle: Text("How to create local db tables"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DatabaseCreateScreen(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: Text("DB - Insert data into table"),
+            leading: Icon(Icons.create),
+            trailing: Icon(Icons.chevron_right),
+            subtitle: Text("How to save data locally"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DatabaseInsertScreen(),
                 ),
               );
             },
