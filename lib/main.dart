@@ -17,6 +17,7 @@ import 'package:mshop/screens/TextStylingScreen.dart';
 import 'package:mshop/screens/ToastScreen.dart';
 import 'package:mshop/screens/database/DatabaseCreateScreen.dart';
 import 'package:mshop/screens/database/DatabaseInsertScreen.dart';
+import 'package:mshop/screens/database/DatabaseSelectScreen.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -287,6 +288,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => DatabaseInsertScreen(),
+                ),
+              );
+            },
+          ),
+
+
+          ListTile(
+            title: Text("DB - Select data from table"),
+            leading: Icon(Icons.list),
+            trailing: Icon(Icons.chevron_right),
+            subtitle: Text("How to get data from local db"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DatabaseSelectScreen(),
                 ),
               );
             },

@@ -4,7 +4,9 @@ class AppConfig {
   static const String LoginScreen = "LoginScreen";
   static const String LOCAL_DB_PATH = 'my_app_db.db';
   static const  List<String> movieCategories =
-  ['Action',
+  [
+    '',
+    'Action',
     'Drama',
     'Scifi',
     'Love story',
